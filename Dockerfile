@@ -1,0 +1,17 @@
+# start from base
+FROM node:boron
+MAINTAINER Jake Peyser <jakepeyser@gmail.com>
+
+# copy our application code
+ADD . /usr/src/app
+WORKDIR /usr/src/app
+
+# fetch app specific deps
+RUN npm install --quiet
+RUN npm run build
+
+# expose port
+EXPOSE 3030
+
+# start app
+CMD ["npm", "start"]
