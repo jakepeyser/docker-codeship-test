@@ -1,0 +1,17 @@
+# log files
+logs
+*.log
+
+# Dependency and build files
+node_modules/
+dist/
+
+# testing/linting output
+.eslintcache
+
+# env vars
+*.env
+codeship.aes
+
+# OS/IDE specific files
+*.DS_STORE
