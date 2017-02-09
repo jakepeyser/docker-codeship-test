@@ -1,5 +1,5 @@
 {
-  "name": "docker-compose-test",
+  "name": "docker-codeship-test",
   "description": "",
   "version": "0.0.1",
   "main": "server/app.js",
