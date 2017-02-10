@@ -4,3 +4,7 @@
       tag: master
       service: app
       command: npm test
+    - name: next
+      tag: master
+      service: app
+      command: echo should I be running?
