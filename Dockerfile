@@ -11,9 +11,3 @@ ENV NODE_ENV=staging
 RUN npm install --quiet
 ENV NODE_ENV=production
 RUN npm run build
-
-# expose port
-EXPOSE 3030
-
-# start app
-CMD ["npm", "test"]

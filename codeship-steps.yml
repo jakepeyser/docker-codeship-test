@@ -3,4 +3,4 @@
     - name: build
       tag: master
       service: app
-      command: echo hello world
+      command: npm test
