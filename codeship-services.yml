@@ -6,7 +6,7 @@ test_build:
       NODE_ENV: testing
 prod_build:
   build:
-    image: jakepeyser/docker-codeship-test
+    image: jakepeyser/docker-codeship-prod
     dockerfile: Dockerfile
     environment:
       NODE_ENV: production
