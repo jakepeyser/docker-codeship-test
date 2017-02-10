@@ -1,0 +1,6 @@
+app:
+  build:
+    image: jakepeyser/docker-codeship-test
+    dockerfile: Dockerfile
+    environment:
+      NODE_ENV: testing
