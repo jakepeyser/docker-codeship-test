@@ -25,7 +25,7 @@ describe('Node server:', function() {
       it('open endpoint', function(done) {
         axios.get(`http://localhost:${PORT}/`)
           .then(result => {
-            assert.equal(result.status, 200);
+            assert.equal(result.status, 201);
             assert.equal(result.data, 'Hello world!');
             done();
           })
