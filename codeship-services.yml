@@ -2,11 +2,11 @@ test_build:
   build:
     image: jakepeyser/docker-codeship-test
     dockerfile: Dockerfile
-    environment:
-      NODE_ENV: testing
+    args:
+      build_env: staging
 prod_build:
   build:
     image: jakepeyser/docker-codeship-prod
     dockerfile: Dockerfile
-    environment:
-      NODE_ENV: production
+    args:
+      build_env: production
