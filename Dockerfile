@@ -7,13 +7,13 @@ ADD . /usr/src/app
 WORKDIR /usr/src/app
 
 # fetch app specific deps
-# ENV NODE_ENV=staging
-# RUN npm install --quiet
-# ENV NODE_ENV=production
-# RUN npm run build
+ENV NODE_ENV=staging
+RUN npm install --quiet
+ENV NODE_ENV=production
+RUN npm run build
 
 # expose port
 EXPOSE 3030
 
 # start app
-CMD ["echo", "hello", "world"]
+CMD ["npm", "test"]
