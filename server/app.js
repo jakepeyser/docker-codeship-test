@@ -15,7 +15,8 @@ const PATHS = {
   serviceWorker: path.join(__dirname, '../dist/service-worker.js')
 }
 
-const PORT = process.env.PORT || 3030;
+const LOCAL_PORT = 3030;
+const PORT = process.env.PORT || LOCAL_PORT;
 const isProd = process.env.NODE_ENV === 'production'
 
 // Logging and favicon middleware

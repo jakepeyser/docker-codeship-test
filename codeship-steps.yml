@@ -1,10 +1,16 @@
 - type: serial
   steps:
     - name: build
-      tag: master
-      service: app
-      command: npm test
-    - name: next
-      tag: master
-      service: app
-      command: echo should I be running?
+      service: test_build
+      command: echo app built successfully
+    - type: parallel
+      steps:
+        - name: unit_tests
+          service: test_build
+          command: npm run test
+        - name: linting
+          service: test_build
+          command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
+    - name: deploy
+      service: prod_build
+      command: echo lets deploy this bitch!

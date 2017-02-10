@@ -1,6 +1,12 @@
-app:
+test_build:
   build:
     image: jakepeyser/docker-codeship-test
     dockerfile: Dockerfile
     environment:
       NODE_ENV: testing
+prod_build:
+  build:
+    image: jakepeyser/docker-codeship-test
+    dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production

@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const base = require('./webpack.base.config')
 
+const LOCAL_PORT = 3030;
+
 module.exports = Object.assign({}, base, {
   target: 'node',
   devtool: false,
@@ -15,7 +17,8 @@ module.exports = Object.assign({}, base, {
       'process.env.NODE_ENV':
         JSON.stringify(process.env.NODE_ENV || 'development'),
       'process.env.VUE_ENV': '"server"',
-      'process.env.SERVER_URI': `"http://localhost:${process.env.PORT || 3030}/"`
+      'process.env.SERVER_URI':
+        `"http://localhost:${process.env.PORT || LOCAL_PORT}/"`
     })
   ])
 })

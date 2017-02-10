@@ -10,7 +10,9 @@ export default {
   },
 
   mutations: {
-    TOGGLE_TESTING: (state) => state.testing = !state.testing
+    TOGGLE_TESTING: (state) => {
+      state.testing = !state.testing
+    }
   },
 
   getters: {
