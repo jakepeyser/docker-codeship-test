@@ -10,5 +10,5 @@
   name: deploy
   tag: master
   service: prod_build
-  image_tag: latest
+  image_tag: "latest""
   registry: https://index.docker.io/v1/
