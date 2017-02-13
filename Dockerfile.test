@@ -9,5 +9,4 @@ ADD . /usr/src/app
 WORKDIR /usr/src/app
 RUN npm install --quiet
 RUN ls
-RUN ls .
-COPY /node_modules temp_modules/
+RUN cp node_modules temp_modules
