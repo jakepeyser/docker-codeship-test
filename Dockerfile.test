@@ -8,5 +8,5 @@ ENV NODE_ENV testing
 ADD . /usr/src/app
 WORKDIR /usr/src/app
 RUN npm install --quiet
-RUN ls
+RUN mkdir temp_modules
 RUN cp -r node_modules/* temp_modules
