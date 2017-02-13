@@ -1,15 +1,16 @@
-# - type: parallel
-#   steps:
-#     - name: unit_tests
-#       service: test_build
-#       command: npm run test
-#     - name: linting
-#       service: test_build
-#       command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
+- type: parallel
+  steps:
+    - name: unit_tests
+      service: test
+      command: npm run test
+    - name: linting
+      service: test
+      command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
 - name: prod_build
-  tag: master
-  service: prod_build
+  tag: ^(master|dev)
+  service: build
   command: echo built prod assets
-- service: deployment
+- name: aws_deploy
   tag: master
+  service: deploy
   command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-env fyreapp-cache

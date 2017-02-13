@@ -1,17 +1,19 @@
-test_build:
-  build:
-    dockerfile: Dockerfile
-    args:
-      build_env: testing
-prod_build:
-  build:
-    dockerfile: Dockerfile
-    args:
-      build_env: production
+test:
+  build: ./
+  dockerfile: Dockerfile.test
   volumes:
-    - /usr/src/app:/deploy
-deployment:
+    - ./node_modules:/usr/src/app/node_modules
+build:
+  build: ./
+  dockerfile: Dockerfile.prod
+  volumes_from:
+    - test
+  volumes:
+    - ./deploy:/usr/src/app
+deploy:
   image: codeship/aws-deployment
   encrypted_env_file: deployment.env.encrypted
   volumes_from:
-    - prod_build
+    - build
+  volumes:
+    - ./deploy:/deploy

@@ -6,12 +6,6 @@ logs
 .git/
 .gitignore
 
-# testing/linting files
-test/
-.eslintignore
-.eslintrc.json
-.eslintcache
-
 # env vars
 *.env
 codeship.aes
