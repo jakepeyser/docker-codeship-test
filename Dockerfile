@@ -17,4 +17,4 @@ ENV NODE_ENV $build_env
 RUN npm run build
 
 # remove non-prod deps if "production"
-RUN if [ "$NODE_ENV" = "production" ]; then rm -rf node_modules && npm install; fi
+RUN if [ "$NODE_ENV" = "production" ]; then rm -rf node_modules && npm install --quiet; fi
