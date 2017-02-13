@@ -6,9 +6,9 @@
     - name: linting
       service: test_build
       command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
-- type: push
-  name: deploy
+- name: prod_build
   tag: master
   service: prod_build
-  image_tag: "latest"
-  registry: https://index.docker.io/v1/
+- service: deploy
+  tag: master
+  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test

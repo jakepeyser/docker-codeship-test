@@ -10,3 +10,8 @@ prod_build:
     dockerfile: Dockerfile
     args:
       build_env: production
+    volumes:
+      - /usr/src/app/:/deploy
+deployment:
+  image: codeship/aws-deployment
+  encrypted_env_file: deployment.env.encrypted
