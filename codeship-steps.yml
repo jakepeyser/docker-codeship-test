@@ -9,6 +9,7 @@
 - name: prod_build
   tag: master
   service: prod_build
+  command: echo built prod assets
 - service: deploy
   tag: master
   command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test
