@@ -2,7 +2,7 @@ test:
   build: ./
   dockerfile: Dockerfile.test
   volumes:
-    - ./node_modules:/usr/src/app/node_modules
+    - ./node_modules:/usr/src/app/temp_modules
 build:
   build: ./
   dockerfile: Dockerfile.prod
