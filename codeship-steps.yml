@@ -1,11 +1,11 @@
-- type: parallel
-  steps:
-    - name: unit_tests
-      service: test_build
-      command: npm run test
-    - name: linting
-      service: test_build
-      command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
+# - type: parallel
+#   steps:
+#     - name: unit_tests
+#       service: test_build
+#       command: npm run test
+#     - name: linting
+#       service: test_build
+#       command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
 - type: push
   name: deploy
   tag: master

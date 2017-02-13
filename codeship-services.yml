@@ -3,7 +3,7 @@ test_build:
     image: jakepeyser/docker-codeship-test
     dockerfile: Dockerfile
     args:
-      build_env: staging
+      build_env: testing
 prod_build:
   build:
     image: jakepeyser/docker-codeship-prod
