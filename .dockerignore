@@ -2,13 +2,22 @@
 logs
 *.log
 
-# Dependency and build files
-node_modules/
-dist/
+# Git files
+.git/
+.gitignore
 
-# testing/linting output
+# testing/linting files
+test/
+.eslintignore
+.eslintrc.json
 .eslintcache
 
 # env vars
 *.env
 codeship.aes
+
+# npm files
+.npmignore
+
+# IDE files
+.editorconfig

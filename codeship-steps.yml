@@ -12,4 +12,4 @@
   command: echo built prod assets
 - service: deployment
   tag: master
-  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test fyreapp-cache
+  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-env fyreapp-cache
