@@ -2,18 +2,16 @@ test:
   build: ./
   dockerfile: Dockerfile.test
   volumes:
-    - ./node_modules:/usr/src/app/temp_modules
+    - ./tmp/node_modules:/usr/src/app/temp_modules
 build:
   build: ./
   dockerfile: Dockerfile.prod
   volumes_from:
     - test
   volumes:
-    - ./deploy:/usr/src/app
+    - ./tmp/deploy:/usr/src/app
 deploy:
   image: codeship/aws-deployment
   encrypted_env_file: deployment.env.encrypted
   volumes_from:
     - build
-  volumes:
-    - ./deploy:/deploy

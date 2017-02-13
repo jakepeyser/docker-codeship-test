@@ -5,8 +5,9 @@ FROM node:boron
 ENV NODE_ENV testing
 
 # install all dependencies in working dir
-ADD . /usr/src/app
 WORKDIR /usr/src/app
+ADD package.json /usr/src/app
 RUN npm install --quiet
+COPY . /usr/src/app
 RUN mkdir temp_modules
 RUN cp -r node_modules/* temp_modules

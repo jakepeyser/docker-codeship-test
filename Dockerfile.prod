@@ -6,7 +6,7 @@ ENV NODE_ENV production
 
 # copy our app and dependency code
 ADD . /usr/src/app
-ADD /node_modules /usr/src/app/node_modules
+ADD ./tmp/node_modules /usr/src/app
 WORKDIR /usr/src/app
 
 # build dist files in given env-mode

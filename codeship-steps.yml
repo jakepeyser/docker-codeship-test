@@ -13,4 +13,4 @@
 - name: aws_deploy
   tag: master
   service: deploy
-  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-env fyreapp-cache
+  command: codeship_aws eb_deploy /tmp/deploy codeship-docker-test codeship-docker-test-env fyreapp-cache
