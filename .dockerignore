@@ -1,3 +1,14 @@
+# log files
+logs
+*.log
+
+# Dependency and build files
 node_modules/
 dist/
-*.log
+
+# testing/linting output
+.eslintcache
+
+# env vars
+*.env
+codeship.aes
