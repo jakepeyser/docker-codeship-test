@@ -2,14 +2,19 @@
 FROM node:boron
 MAINTAINER Jake Peyser <jakepeyser@gmail.com>
 
-# set Node environment
-ARG build_env
-ENV NODE_ENV $build_env
-
 # copy our application code
 ADD . /usr/src/app
 WORKDIR /usr/src/app
 
-# fetch app specific deps
+# install all dependencies
 RUN npm install --quiet
+
+# set Node environment
+ARG build_env
+ENV NODE_ENV $build_env
+
+# build dist files in given env-mode
 RUN npm run build
+
+# remove non-prod deps if "production"
+RUN if [ "$NODE_ENV" = "production" ]; then rimraf node_modules && npm install; fi
