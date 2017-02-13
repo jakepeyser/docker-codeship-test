@@ -2,7 +2,7 @@
   steps:
     - name: unit_tests
       service: test
-      command: npm run test
+      command: ls .
     - name: linting
       service: test
       command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
