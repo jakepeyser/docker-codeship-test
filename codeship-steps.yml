@@ -20,7 +20,7 @@
 - name: aws_dev_deploy
   tag: ^dev$
   service: deploy
-  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-dev fyreapp-cache-dev
+  command: bash -c 'codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-$CI_BRANCH fyreapp-cache-dev'
 - name: aws_prod_deploy
   tag: ^master$
   service: deploy
