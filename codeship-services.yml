@@ -1,13 +1,18 @@
-test:
-  build: ./
-  dockerfile: Dockerfile.test
+install:
+  build:
+  dockerfile: Dockerfile.install
   volumes:
-    - ./tmp/node_modules:/usr/src/app/temp_modules
-build:
-  build: ./
-  dockerfile: Dockerfile.prod
+    - ./tmp/node_modules:/usr/src/app/node_modules
+test:
+  build:
+    dockerfile: Dockerfile.test
   volumes_from:
-    - test
+    - install
+build:
+  build:
+    dockerfile: Dockerfile.prod
+  volumes_from:
+    - install
   volumes:
     - ./tmp/deploy:/usr/src/app
 deploy:

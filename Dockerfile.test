@@ -4,10 +4,6 @@ FROM node:boron
 # set env vars
 ENV NODE_ENV testing
 
-# install all dependencies in working dir
+# copy entire app to working repo
 WORKDIR /usr/src/app
-ADD package.json /usr/src/app
-RUN npm install --quiet
 COPY . /usr/src/app
-RUN mkdir temp_modules
-RUN cp -r node_modules/* temp_modules

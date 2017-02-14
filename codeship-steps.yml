@@ -1,3 +1,6 @@
+- name: install_deps
+  service: install
+  command: npm install --quiet
 - type: parallel
   steps:
     - name: unit_tests
@@ -9,7 +12,7 @@
 - name: prod_build
   tag: ^(master|dev)
   service: build
-  command: echo built prod assets
+  command: "scripts/build-prod.sh"
 - name: aws_deploy
   tag: master
   service: deploy
