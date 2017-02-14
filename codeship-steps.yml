@@ -10,14 +10,18 @@
       service: test
       command: node_modules/.bin/eslint build/ client/ server/ test/ --ext js,vue -c .eslintrc.json --color --cache --cache-location .eslintcache --ignore-path .eslintignore
 - name: prod_build
-  tag: ^(master|dev)
+  tag: ^(master|dev)$
   service: build
   command: npm run build
 - name: install_prod_deps
-  tag: ^(master|dev)
+  tag: ^(master|dev)$
   service: install
   command: npm install --quiet
 - name: aws_deploy
-  tag: master
+  tag: ^dev$
   service: deploy
-  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-env fyreapp-cache
+  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-dev fyreapp-cache-dev
+- name: aws_deploy
+  tag: ^master$
+  service: deploy
+  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-env fyreapp-cache-prod
