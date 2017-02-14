@@ -17,11 +17,11 @@
   tag: ^(master|dev)$
   service: install
   command: npm install --quiet
-- name: aws_deploy
+- name: aws_dev_deploy
   tag: ^dev$
   service: deploy
   command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-dev fyreapp-cache-dev
-- name: aws_deploy
+- name: aws_prod_deploy
   tag: ^master$
   service: deploy
   command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-env fyreapp-cache-prod
