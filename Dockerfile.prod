@@ -1,12 +1,10 @@
 # start from base
 FROM node:boron
 
-# set env vars
-ENV NODE_ENV testing
-
 # copy entire app to working repo
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN npm install --quiet
 
+# install build dependencies
+RUN npm install --quiet
 ENV NODE_ENV production

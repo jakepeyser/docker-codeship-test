@@ -1,16 +1,22 @@
 test:
   build:
     dockerfile: Dockerfile.test
+  environment:
+    NODE_ENV: testing
 build:
   build:
     dockerfile: Dockerfile.prod
   volumes:
     - ./dist:/usr/src/app/dist
+  environment:
+    NODE_ENV: testing
 install:
   build:
     dockerfile: Dockerfile.install
   volumes:
     - ./node_modules:/usr/src/app/node_modules
+  environment:
+    NODE_ENV: production
 deploy:
   image: codeship/aws-deployment
   encrypted_env_file: deployment.env.encrypted
