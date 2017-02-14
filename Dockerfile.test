@@ -7,3 +7,6 @@ ENV NODE_ENV testing
 # copy entire app to working repo
 WORKDIR /usr/src/app
 COPY . /usr/src/app
+
+# install test & build dependencies
+RUN npm install --quiet

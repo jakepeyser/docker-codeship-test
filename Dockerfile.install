@@ -1,6 +1,9 @@
 # start from base
 FROM node:boron
 
+# set env vars
+ENV NODE_ENV production
+
 # copy entire app to working repo
 WORKDIR /usr/src/app
-COPY package.json /usr/src/app
+COPY . /usr/src/app

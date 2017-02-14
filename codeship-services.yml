@@ -1,22 +1,18 @@
-install:
-  build:
-  dockerfile: Dockerfile.install
-  volumes:
-    - ./tmp/node_modules:/usr/src/app/node_modules
 test:
   build:
     dockerfile: Dockerfile.test
-  volumes_from:
-    - install
 build:
   build:
     dockerfile: Dockerfile.prod
-  volumes_from:
-    - install
   volumes:
-    - ./tmp/deploy:/usr/src/app
+    - ./dist:/usr/src/app/dist
+install:
+  build:
+    dockerfile: Dockerfile.install
+  volumes:
+    - ./node_modules:/usr/src/app/node_modules
 deploy:
   image: codeship/aws-deployment
   encrypted_env_file: deployment.env.encrypted
-  volumes_from:
-    - build
+  volumes:
+    - ./:/deploy

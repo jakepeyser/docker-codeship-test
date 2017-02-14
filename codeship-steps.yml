@@ -1,6 +1,6 @@
-- name: install_deps
-  service: install
-  command: npm install --quiet
+- name: install_test_deps
+  service: test
+  command: echo 'installed test dependencies'
 - type: parallel
   steps:
     - name: unit_tests
@@ -12,8 +12,12 @@
 - name: prod_build
   tag: ^(master|dev)
   service: build
-  command: "scripts/build-prod.sh"
+  command: npm run build
+- name: install_prod_deps
+  tag: ^(master|dev)
+  service: install
+  command: npm install --quiet
 - name: aws_deploy
   tag: master
   service: deploy
-  command: codeship_aws eb_deploy /tmp/deploy codeship-docker-test codeship-docker-test-env fyreapp-cache
+  command: codeship_aws eb_deploy /deploy codeship-docker-test codeship-docker-test-env fyreapp-cache

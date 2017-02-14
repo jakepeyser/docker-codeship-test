@@ -15,3 +15,6 @@ codeship.aes
 
 # IDE files
 .editorconfig
+
+# temp files
+tmp/
